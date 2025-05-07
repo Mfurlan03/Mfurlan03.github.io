@@ -1,148 +1,295 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Michael Furlano - Industrial Engineer Portfolio</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        header {
-            background-color: #282c34;
-            color: #fff;
-            padding: 20px 0;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-        }
-        nav ul {
-            list-style: none;
-            padding: 0;
-        }
-        nav ul li {
-            display: inline;
-            margin: 0 15px;
-        }
-        nav a {
-            color: #fff;
-            text-decoration: none;
-        }
-        section {
-            max-width: 900px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-        .project {
-            margin-bottom: 30px;
-        }
-        .project h3 {
-            margin-top: 0;
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #282c34;
-            color: #fff;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Michael Furlano – Interactive Portfolio</title>
+  <style>
+    /* ========== GLOBAL ========== */
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; padding: 0;
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #eee;
+      overflow-x: hidden;
+    }
+    a { color: #61dafb; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ========== PARTICLES ========== */
+    #particles-js {
+      position: fixed;
+      width: 100%; height: 100%;
+      z-index: -1; top: 0; left: 0;
+    }
+
+    /* ========== HEADER ========== */
+    header {
+      text-align: center;
+      padding: 80px 20px;
+      position: relative;
+    }
+    header h1 {
+      margin: 0; font-size: 3rem; letter-spacing: 2px;
+      text-shadow: 0 0 8px #61dafb;
+    }
+    #typewriter { font-size: 1.2rem; display:inline-block; }
+    .cursor {
+      font-weight: bold; margin-left: 2px;
+      animation: blink 0.7s infinite;
+    }
+    @keyframes blink { 0%,100% { opacity:1; } 50%{ opacity:0; } }
+    nav ul {
+      list-style: none; padding: 0; margin: 20px 0 0;
+    }
+    nav li { display: inline-block; margin: 0 15px; }
+    nav a { font-weight: bold; }
+
+    /* ========== SECTIONS ========== */
+    section {
+      max-width: 900px;
+      margin: 80px auto;
+      padding: 20px;
+      background: rgba(0,0,0,0.6);
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      opacity: 0; transform: translateY(20px);
+      transition: all 0.6s ease-out;
+    }
+    section.show { opacity:1; transform: translateY(0); }
+    section h2 {
+      border-bottom: 2px solid #61dafb;
+      padding-bottom: 5px;
+      margin-bottom: 15px;
+    }
+
+    /* ========== PROJECT CARDS ========== */
+    .project {
+      background: rgba(255,255,255,0.05);
+      padding: 15px 20px;
+      margin-bottom: 25px;
+      border-radius: 6px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .project:hover {
+      transform: scale(1.03) rotate(-1deg);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.7);
+    }
+    .project h3 { margin-top: 0; color: #61dafb; }
+
+    /* ========== SKILL BARS ========== */
+    .skill-bar { margin-bottom: 15px; }
+    .skill-name { margin-bottom: 5px; }
+    .bar {
+      background: #333; border-radius: 25px; overflow: hidden;
+    }
+    .progress {
+      height: 18px; width: 0;
+      background: #61dafb;
+      transition: width 2s ease;
+    }
+
+    /* ========== FOOTER ========== */
+    footer {
+      text-align: center; padding: 20px; background: #000;
+      color: #555; font-size: 0.9rem;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Michael Furlano - Industrial Engineer</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#resume">Resume</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Hello! I’m Michael Furlano, currently pursuing a Bachelor of Applied Science in Industrial Engineering at the University of Toronto, with a minor in Artificial Intelligence and Engineering Business. My interests include optimization, machine learning, and problem-solving through engineering design. I have a passion for applying data-driven approaches to real-world challenges.</p>
-    </section>
+  <!-- PARTICLE BACKGROUND -->
+  <div id="particles-js"></div>
 
-    <section id="projects">
-        <h2>Projects</h2>
+  <header>
+    <h1>Michael Furlano</h1>
+    <p><span id="typewriter"></span><span class="cursor">|</span></p>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-        <div class="project">
-            <h3>CRSD Bracelet Design | Project Manager</h3>
-            <p><strong>Description:</strong> Led a team of 5 to design and prototype a CRSD data-tracking device using C++ and basic manufacturing skills. The solution was successfully tested and met 90% client satisfaction on performance.</p>
-            <p><strong>Skills Used:</strong> Project management, client communication, C++, product design.</p>
-        </div>
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I’m an Industrial Engineering undergrad at UofT (BASc ’26) with a Minor in AI. I love optimizing processes, 
+       architecting full-stack ML pipelines, and building data-driven solutions in cross-functional teams.</p>
+    <p>My toolbox: Python/Flask back-ends, React front-ends, TensorFlow/PyTorch models, SQL/NoSQL, simulations, 
+       graph algorithms & more. Let’s build something epic!</p>
+  </section>
 
-        <div class="project">
-            <h3>Traveling Salesman Problem (TSP) Solution</h3>
-            <p><strong>Description:</strong> Developed a scalable solution for the Traveling Salesman Problem (TSP) in Java. This project improved the algorithm processing time by 40% and reduced the convergence rate by 30% compared to baseline algorithms.</p>
-            <p><strong>Technologies Used:</strong> Java, OOP, Graph Algorithms, Integer Linear Programming.</p>
-        </div>
+  <section id="projects">
+    <h2>Projects</h2>
 
-        <div class="project">
-            <h3>Epidemic Modeling Project</h3>
-            <p><strong>Description:</strong> Built a COVID-19 epidemic model using the SIR framework to forecast infection trajectories in New York and Toronto. The model achieved an 85% accuracy in predicting infection and recovery trends.</p>
-            <p><strong>Tools Used:</strong> R, SAS, Statistical Testing, Mathematical Models.</p>
-        </div>
+    <div class="project">
+      <h3>🎵 Audio Feature Regression Pipeline</h3>
+      <ul>
+        <li>Random Forest baseline (MSE 83.7) → GRU RNN (MSE 3.97)</li>
+        <li>YouTube scraping + Librosa feature extraction</li>
+        <li>Hyper-param sweeps on Colab, live MSE heatmaps</li>
+      </ul>
+    </div>
 
-        <div class="project">
-            <h3>Statistical Analysis of Music's Impact on Short-Term Memory</h3>
-            <p><strong>Description:</strong> Conducted an experiment with 50 participants to test the effect of classical music on memory recall (the Mozart Effect), showing statistically significant results in memory improvement (p < 0.05).</p>
-            <p><strong>Tools Used:</strong> R, Statistical Testing.</p>
-        </div>
-    </section>
+    <div class="project">
+      <h3>🏥 Hospital Simulation Model</h3>
+      <ul>
+        <li>Simio + Python/R discrete-event sim of patient flow</li>
+        <li>18 scenarios: FCFS outperformed dynamic routing</li>
+        <li>Avg wait times: Medicine 90.6d, Neuro/MSK 4.47d</li>
+      </ul>
+    </div>
 
-    <section id="resume">
-        <h2>Resume</h2>
-        <p><a href="resume.pdf" download>Download My Resume</a></p>
-        <ul>
-            <li><strong>Education:</strong> Bachelor of Applied Science in Industrial Engineering, University of Toronto (Expected Graduation: April 2026)</li>
-            <li><strong>Minor:</strong> Artificial Intelligence and Engineering Business</li>
-            <li><strong>Relevant Coursework:</strong> Operations Research, Data Science, Machine Learning, Supply Chain Management</li>
-        </ul>
+    <div class="project">
+      <h3>⌚ CRSD Bracelet Design</h3>
+      <ul>
+        <li>IP68, 6–12 mo battery, ±0.1% sensor accuracy @ ~$100CAD</li>
+        <li>50+ concepts evaluated; Pugh matrices; detailed tests</li>
+      </ul>
+    </div>
 
-        <h3>Work Experience</h3>
-        <ul>
-            <li><strong>Construction and Landscaping Intern | Forest Hill Construction</strong> (April 2023 - August 2024)
-                <ul>
-                    <li>Increased project efficiency by improving the delivery process, cutting timelines by 10%.</li>
-                    <li>Reduced inventory tracking errors by 20% through better systems, improving project approvals by 15%.</li>
-                </ul>
-            </li>
-            <li><strong>Credit Support | Noble Corporation</strong> (April 2022 - August 2022)
-                <ul>
-                    <li>Reconciled customer accounts with 98% accuracy, streamlining the payment process and reducing discrepancies by 25%.</li>
-                </ul>
-            </li>
-            <li><strong>Project Manager | UTSCIM</strong> (September 2024 - Present)
-                <ul>
-                    <li>Led machine learning projects focused on applying AI to solve supply chain challenges.</li>
-                </ul>
-            </li>
-        </ul>
-    </section>
+    <div class="project">
+      <h3>📑 Cognitive Safety Lit Review</h3>
+      <ul>
+        <li>Systematic review of 100+ papers with Prof. Chignell</li>
+        <li>Co-authored manuscript & actionable healthcare protocols</li>
+      </ul>
+    </div>
+  </section>
 
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>If you'd like to reach out to discuss opportunities, collaborations, or projects, feel free to contact me at <a href="mailto:furlanomichael02@gmail.com">furlanomichael02@gmail.com</a>.</p>
-    </section>
+  <section id="experience">
+    <h2>Experience & Education</h2>
 
-    <footer>
-        <p>&copy; 2024 Michael Furlano - All Rights Reserved</p>
-        <p><a href="https://www.linkedin.com/in/michaelfurlano">LinkedIn</a></p>
-    </footer>
+    <div class="project">
+      <h3>Forest Hill Construction (Apr ’23–Present)</h3>
+      <ul>
+        <li>Digital scheduler → –70% errors, +30% on-time assignments</li>
+        <li>Excel tracker → –40% tool loss, 98% inventory accuracy</li>
+      </ul>
+
+      <h3>UTSCIM @ UofT (Sep ’24–Present)</h3>
+      <ul>
+        <li>Python ML model → –12% supply-chain lead times</li>
+        <li>5 workshops on ML for 50+ students; Tableau dashboards</li>
+      </ul>
+
+      <h3>Noble Corp (Apr ’22–Aug ’22)</h3>
+      <ul>
+        <li>Excel/Python automation → 98% account accuracy</li>
+        <li>Payment-trend analysis → –25% discrepancies</li>
+      </ul>
+
+      <h3>University of Toronto (BASc ’26)</h3>
+      <p>Minor in AI — Coursework: OR, Data Science, ML, Supply Chain, Simulation, Deep Learning…</p>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skill-bar">
+      <div class="skill-name">Python & ML</div>
+      <div class="bar"><div class="progress" data-width="90%"></div></div>
+    </div>
+    <div class="skill-bar">
+      <div class="skill-name">Java / C++</div>
+      <div class="bar"><div class="progress" data-width="75%"></div></div>
+    </div>
+    <div class="skill-bar">
+      <div class="skill-name">SQL / NoSQL</div>
+      <div class="bar"><div class="progress" data-width="80%"></div></div>
+    </div>
+    <div class="skill-bar">
+      <div class="skill-name">HTML/CSS/JS/React</div>
+      <div class="bar"><div class="progress" data-width="85%"></div></div>
+    </div>
+    <div class="skill-bar">
+      <div class="skill-name">Simulation & Optimization</div>
+      <div class="bar"><div class="progress" data-width="70%"></div></div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>
+      📧 <a href="mailto:furlanomichael02@gmail.com">furlanomichael02@gmail.com</a><br>
+      🔗 <a href="https://mfurlan03.github.io" target="_blank">GitHub Pages</a> • 
+      <a href="https://www.linkedin.com/in/michaelfurlano" target="_blank">LinkedIn</a><br>
+      📄 <a href="resume.pdf" download>Download Resume</a>
+    </p>
+  </section>
+
+  <footer>
+    &copy; 2025 Michael Furlano • All Rights Reserved
+  </footer>
+
+  <!-- PARTICLES.JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    /* PARTICLES BACKGROUND */
+    particlesJS('particles-js', {
+      particles: {
+        number: { value: 60, density: { enable: true, value_area: 800 } },
+        color: { value: '#61dafb' },
+        shape: { type: 'circle' },
+        opacity: { value: 0.5, random: true },
+        size: { value: 3, random: true },
+        line_linked: { enable: true, distance: 150, color: '#61dafb', opacity: 0.4, width: 1 },
+        move: { enable: true, speed: 2 }
+      },
+      interactivity: {
+        detect_on: 'canvas',
+        events: {
+          onhover: { enable: true, mode: 'grab' },
+          onclick: { enable: true, mode: 'push' }
+        },
+        modes: {
+          grab: { distance: 140, line_linked: { opacity: 1 } },
+          push: { particles_nb: 4 }
+        }
+      },
+      retina_detect: true
+    });
+
+    /* TYPEWRITER EFFECT */
+    const texts = ['Industrial Engineer','AI Enthusiast','Data-Driven Problem Solver','ML Engineer'];
+    let count = 0, index = 0;
+    (function type() {
+      if (count === texts.length) count = 0;
+      const full = texts[count];
+      const part = full.slice(0, ++index);
+      document.getElementById('typewriter').textContent = part;
+      if (part === full) {
+        setTimeout(() => { index = 0; count++; type(); }, 1500);
+      } else {
+        setTimeout(type, 150);
+      }
+    })();
+
+    /* SCROLL REVEAL */
+    const sections = document.querySelectorAll('section');
+    const opts = { threshold: 0.2 };
+    const obs = new IntersectionObserver((entries, o) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('show');
+          o.unobserve(e.target);
+        }
+      });
+    }, opts);
+    sections.forEach(sec => obs.observe(sec));
+
+    /* SKILL BARS ANIMATION */
+    window.addEventListener('load', () => {
+      document.querySelectorAll('.progress').forEach(bar => {
+        bar.style.width = bar.dataset.width;
+      });
+    });
+  </script>
 </body>
 </html>
