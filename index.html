@@ -119,10 +119,8 @@
 
   <section id="about">
     <h2>About Me</h2>
-    <p>I’m an Industrial Engineering undergrad at UofT (BASc ’26) with a Minor in AI. I love optimizing processes, 
-       architecting full-stack ML pipelines, and building data-driven solutions in cross-functional teams.</p>
-    <p>My toolbox: Python/Flask back-ends, React front-ends, TensorFlow/PyTorch models, SQL/NoSQL, simulations, 
-       graph algorithms & more. Let’s build something epic!</p>
+    <p>Undergraduate Industrial Engineering student (BASc ’26) with a Minor in Artificial Intelligence, proficient at architecting scalable back-end services using Python, Flask, REST APIs and SQL/NoSQL databases, and crafting responsive front-end interfaces with HTML, CSS, JavaScript and React. I have end-to-end data science and ML engineering experience, building, training and deploying pipelines in TensorFlow, PyTorch and scikit-learn, and I’ve applied AI/ML methods in supply-chain analytics, discrete-event simulation, deep learning and graph algorithms to deliver robust, data-driven solutions within cross-functional teams.</p>
+
   </section>
 
   <section id="projects">
@@ -131,34 +129,36 @@
     <div class="project">
       <h3>🎵 Audio Feature Regression Pipeline</h3>
       <ul>
-        <li>Random Forest baseline (MSE 83.7) → GRU RNN (MSE 3.97)</li>
-        <li>YouTube scraping + Librosa feature extraction</li>
-        <li>Hyper-param sweeps on Colab, live MSE heatmaps</li>
+        <li>Designed a multi-output regression pipeline to quantify 11 musical attributes using a Random Forest baseline (MSE 83.68) and a GRU-based RNN (MSE 3.97).</li>
+        <li>Built an end-to-end audio preprocessing framework: scraped full-length tracks via YouTube, extracted MFCCs, chroma, spectral contrast, tonnetz, and zero-crossing rate with Librosa, and structured inputs for PyTorch.</li>
+        <li>Implemented checkpointing on Google Colab GPUs, ran hyperparameter sweeps (hidden sizes 256/512, dropout 0.3–0.5, learning rates 0.0005–0.001), and analyzed per-feature MSE heatmaps to drive model refinements.</li>
       </ul>
     </div>
 
     <div class="project">
       <h3>🏥 Hospital Simulation Model</h3>
       <ul>
-        <li>Simio + Python/R discrete-event sim of patient flow</li>
-        <li>18 scenarios: FCFS outperformed dynamic routing</li>
-        <li>Avg wait times: Medicine 90.6d, Neuro/MSK 4.47d</li>
+        <li>Developed a discrete-event simulation in Simio to model patient flows through acute (Medicine, Neuro/MSK) and rehabilitation wards, fitting arrival, treatment, and rehab time distributions (Weibull, Lognormal, Gamma, Exponential) via Python.</li>
+        <li>Designed experiments (warm-up ~1,230 days; run length 12,300 days) and evaluated 18 prioritization scenarios, finding FCFS outperformed dynamic routing under current capacities.</li>
+        <li>Quantified performance: avg. wait times (Medicine 90.6 days, Neuro/MSK 4.47 days), ward utilizations (up to 97.7%), and blocked-bed proportions (~50%), then recommended capacity/routing adjustments.</li>
       </ul>
     </div>
 
     <div class="project">
       <h3>⌚ CRSD Bracelet Design</h3>
       <ul>
-        <li>IP68, 6–12 mo battery, ±0.1% sensor accuracy @ ~$100CAD</li>
-        <li>50+ concepts evaluated; Pugh matrices; detailed tests</li>
+        <li>Led a team of 5 to develop a Conceptual Design Specification for a wearable device measuring circadian rhythm desynchrony via temperature, light exposure, and sweat rate.</li>
+        <li>Evaluated 50+ concepts using brainstorming, multi-voting, and Pugh-method matrices; selected an Ergonomic Environment Bracelet (EEB) with IP68 water resistance, long-life batteries (6–12 mo), embedded sensors, and companion app.</li>
+        <li>Defined measures of success (±0.1% sensor accuracy, cost ~$100 CAD, <30 g, medical-device compliance) and drafted comprehensive test plans and stakeholder analyses.</li>
       </ul>
     </div>
 
     <div class="project">
       <h3>📑 Cognitive Safety Lit Review</h3>
       <ul>
-        <li>Systematic review of 100+ papers with Prof. Chignell</li>
-        <li>Co-authored manuscript & actionable healthcare protocols</li>
+        <li>Collaborated with Prof. Mark Chignell on Improving Cognitive Safety in High-Risk Patients (2024), contributing to study design, data analysis, and manuscript drafting.</li>
+        <li>Conducted a systematic review of 100+ academic papers to identify trends and gaps in cognitive safety practices within healthcare.</li>
+        <li>Synthesized findings into actionable recommendations that informed subsequent empirical research and protocol revisions.</li>
       </ul>
     </div>
   </section>
@@ -169,24 +169,24 @@
     <div class="project">
       <h3>Forest Hill Construction (Apr ’23–Present)</h3>
       <ul>
-        <li>Digital scheduler → –70% errors, +30% on-time assignments</li>
-        <li>Excel tracker → –40% tool loss, 98% inventory accuracy</li>
+        <li>Designed and rolled out a centralized digital job-scheduling system, cutting scheduling errors by 70% and boosting on-time assignments by 30%.</li>
+        <li>Developed an automated Excel-based inventory tracker that reduced tool loss by 40% and improved inventory accuracy to 98%.</li>
+        <li>Partnered with crews and management to map pain points and refine communication workflows, driving a measurable uptick in operational clarity.</li>
       </ul>
 
       <h3>UTSCIM @ UofT (Sep ’24–Present)</h3>
       <ul>
-        <li>Python ML model → –12% supply-chain lead times</li>
-        <li>5 workshops on ML for 50+ students; Tableau dashboards</li>
+        <li>Led the design of a Python-based ML model to forecast supply-chain bottlenecks, trimming lead times by 12%.</li>
+        <li>Organized and led 5 hands-on workshops for 50+ students on applied ML in supply-chain optimization.</li>
+        <li>Developed a Tableau dashboard to visualize real-time performance metrics, enabling data-driven decisions.</li>
       </ul>
 
       <h3>Noble Corp (Apr ’22–Aug ’22)</h3>
       <ul>
-        <li>Excel/Python automation → 98% account accuracy</li>
-        <li>Payment-trend analysis → –25% discrepancies</li>
+        <li>Automated Excel account allocation flows and verified customer account accuracy</li>
+        <li>Analyzed payment trends using Excel and Python because this helped in identifying key trends and patterns, thus enabling the team to make informed decisions.</li>
       </ul>
 
-      <h3>University of Toronto (BASc ’26)</h3>
-      <p>Minor in AI — Coursework: OR, Data Science, ML, Supply Chain, Simulation, Deep Learning…</p>
     </div>
   </section>
 
@@ -220,7 +220,7 @@
       📧 <a href="mailto:furlanomichael02@gmail.com">furlanomichael02@gmail.com</a><br>
       🔗 <a href="https://mfurlan03.github.io" target="_blank">GitHub Pages</a> • 
       <a href="https://www.linkedin.com/in/michaelfurlano" target="_blank">LinkedIn</a><br>
-      📄 <a href="resume.pdf" download>Download Resume</a>
+      📄 <a href="Michael Furlano Resume.pdf" download>Download Resume</a>
     </p>
   </section>
 
